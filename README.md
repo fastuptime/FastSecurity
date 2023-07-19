@@ -4,11 +4,10 @@
 
 # Video
 
-https://www.youtube.com/watch?v=ercuDW7JZws
+[![Video](https://img.youtube.com/vi/ercuDW7JZws/0.jpg)](https://www.youtube.com/watch?v=ercuDW7JZws)
 
-## Satın Almak İçin
+# Satın Almak İçin
 
----
 - ✨ [Destek İçin](https://fastuptime.com) <br>
 - 💕 [Discord](https://fastuptime.com/discord)<br>
 - 🎖️ [FasterHost Technology](https://fasterhost.tech/)<br>
