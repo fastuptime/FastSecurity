@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>FastSecurity | Verification Protocol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function check(token) {
+            document.getElementById("captcha").submit();
+        }
+    </script>
+</head>
+<body style="background-color: #121212; font-family: 'Open Sans', sans-serif;">
+    <div class="app-content content ">
+        <div class="content-wrapper">
+            <div class="content-body">
+                <div class="misc-wrapper">
+                    <h2 class="brand-text ms-1" style="color: #fff; padding: 10px;">FastSecurity</h2>
+                    <div class="misc-inner p-2 p-sm-3">
+                        <div class="w-100 text-center">
+                            <h2 class="mb-1" style="color: #fff;">Son Bir Adım Daha! 🚀</h2>
+                            <img class="img-fluid" src="/assets/ico.svg" alt="Security-amico" width="500px">
+                            <p class="mb-3" style="color: #fff;">Hesabınızı doğrulamak için lütfen aşağıdaki 'Devam Et' butonuna tıklayın ve Captcha doğrulamasını tamamlayın.</p>
+                            <form id="captcha" action="/captcha" method="POST">
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <button class="btn btn-dark g-recaptcha" data-sitekey="<%= siteKey %>" data-callback="check">Devam Et</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+            let msg = urlParams.get('message');
+            if (urlParams.get('status') == 'false') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Doğrulama Başarısız',
+                    text: `${msg}`,
+                    footer: 'Tüm Hakları Saklıdır.',
+                    confirmButtonText: 'Anlaşıldı',
+                    timer: 5000
+                }).then((result) => {
+                    window.location.href = window.location.href.split('?')[0];
+                });
+            }
+            if (urlParams.get('status') == 'true') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Doğrulama Başarılı',
+                    text: `${msg}`,
+                    footer: 'Tüm Hakları Saklıdır.',
+                    confirmButtonText: 'Anlaşıldı',
+                    timer: 15000
+                }).then((result) => {
+                    window.location.href = window.location.href.split('?')[0];
+                });
+            }
+    </script>
+</body>
+</html>
