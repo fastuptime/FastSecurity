@@ -20,7 +20,7 @@ FastSecurity, Discord sunucularınız için üye yedekleme ve sunucu koruma yaz�
 ### 1. Depoyu Klonlayın
 
 ```bash
-git clone https://github.com/kullaniciadi/FastSecurity.git
+git clone https://github.com/fastuptime/FastSecurity.git
 cd FastSecurity
 ```
 
